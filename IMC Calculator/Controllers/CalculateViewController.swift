@@ -9,7 +9,8 @@ import UIKit
 
 class CalculateViewController: UIViewController {
     
-    var imcValue = "0.0"
+    
+    var calculatorBrain = CalculatorBrain()
     
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
@@ -36,16 +37,16 @@ class CalculateViewController: UIViewController {
         let height = heightSlider.value
         let weight = weightSlider.value
         
+        calculatorBrain.calculateIMC(height: height, weight: weight)
         
         let imc = weight / pow(height, 2) // Pow para fazer números elevados.
-        imcValue = String(format: "%.1f", imc)
         
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.imcValue = imcValue
+            destinationVC.imcValue = calculatorBrain.getIMCValue()
         }
     }
 }
