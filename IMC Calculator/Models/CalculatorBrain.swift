@@ -31,13 +31,13 @@ struct CalculatorBrain {
     mutating func calculateIMC(height: Float, weight: Float) {
         let imcValue = weight / (height * height)
         if imcValue < 18.5 {
-            imc = IMC(value: imcValue, advice: "Coma mais tortas rs.", color: .blue)
+            imc = IMC(value: imcValue, advice: "Coma mais tortas rs.", color: UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00))
         }
         else if imcValue >= 18.5 && imcValue < 24.9 {
-            imc = IMC(value: imcValue, advice: "Mantenha a dieta.", color: .green)
+            imc = IMC(value: imcValue, advice: "Mantenha a dieta.", color: UIColor(red: 0.00, green: 0.55, blue: 0.01, alpha: 1.00))
         }
         else if imcValue > 24.9 {
-            imc = IMC(value: imcValue, advice: "É melhor diminuir a comida.", color: .red)
+            imc = IMC(value: imcValue, advice: "É melhor diminuir a comida.", color: UIColor(red: 0.72, green: 0.00, blue: 0.00, alpha: 1.00))
         }
     }
     
